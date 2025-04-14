@@ -1,0 +1,9 @@
+~/docker/
+├── docker-compose.yml         <-- This will be created here
+├── Crick12_Admin/
+│   └── Dockerfile
+├── Crick12_App/
+│   └── Dockerfile
+└── crick12_web/
+    └── Dockerfile
+

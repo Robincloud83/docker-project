@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  crick12_admin:
+    build:
+      context: ./Crick12_Admin
+      dockerfile: Dockerfile
+    container_name: crick12_admin
+    ports:
+      - "6009:6009"
+    volumes:
+      - ./Crick12_Admin:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    restart: unless-stopped
+
+  crick12_app:
+    build:
+      context: ./Crick12_App
+      dockerfile: Dockerfile
+    container_name: crick12_app
+    ports:
+      - "5122:5122"
+    volumes:
+      - ./Crick12_App:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    restart: unless-stopped
+
+  crick12_web:
+    build:
+      context: ./crick12_web
+      dockerfile: Dockerfile
+    container_name: crick12_web
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+
